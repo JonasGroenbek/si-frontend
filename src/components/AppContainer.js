@@ -1,16 +1,15 @@
 import React from 'react'
-//import { useDispatch } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Feed from './routes/Feed'
+import Login from './routes/Login'
 
-//Cms routes
-
-const AppContainer = props => {
+const AppContainer = () => {
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/" component={<div>/</div>} />
-          <Route path="/x" component={<div>x</div>} />
+          <Route path="/" component={Feed} />
+          <Route path="/login" component={Login} />
         </Switch>
       </Router>
     </div>

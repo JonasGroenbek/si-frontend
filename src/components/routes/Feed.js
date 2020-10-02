@@ -1,5 +1,7 @@
-import 'shards-ui/dist/css/shards.min.css'
+import React from 'react'
 
-const Feed = props => {}
+const Feed = props => {
+  return <div>Feed</div>
+}
 
 export default Feed
