@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import SignUpForm from '../login/SignUpForm'
 import LogInForm from '../login/LogInForm'
+import Header from '../universal/Header'
 
 const Login = props => {
   const [signInEmail, setSignInEmail] = useState('')
@@ -11,6 +12,7 @@ const Login = props => {
 
   return (
     <div>
+      <Header />
       <h2>Log ind!</h2>
       <LogInForm />
       <h2>Skriv dig op!</h2>

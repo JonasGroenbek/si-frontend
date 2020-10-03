@@ -1,18 +1,23 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Link } from 'react-router-dom'
 import Feed from './routes/Feed'
 import Login from './routes/Login'
+import styled from 'styled-components'
+
+const Container = styled.div`
+  margin-top: 100px;
+`
 
 const AppContainer = () => {
   return (
-    <div className="App">
+    <Container>
       <Router>
         <Switch>
-          <Route path="/" component={Feed} />
-          <Route path="/login" component={Login} />
+          <Link to="/" component={Feed} />
+          <Link to="/login" component={Login} />
         </Switch>
       </Router>
-    </div>
+    </Container>
   )
 }
 
