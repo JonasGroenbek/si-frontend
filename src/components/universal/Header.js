@@ -5,7 +5,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
 import PersonIcon from '@material-ui/icons/PersonOutlineRounded'
 import ChatBubbleIcon from '@material-ui/icons/ChatBubbleOutlineRounded'
 import styled from 'styled-components'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 
 const Container = styled.div`
   background-color: #fff;
@@ -23,29 +23,34 @@ const useStyles = makeStyles({
   }
 })
 
-const Header = () => {
+const Header = props => {
   const classes = useStyles()
-  const [value, setValue] = React.useState(0)
 
   const history = useHistory()
+
+  const { pathname: route } = useLocation()
 
   return (
     <Container>
       <BottomNavigation
-        value={value}
-        onChange={(_, newValue) => {
-          if (value === 0) {
-            history.push('/login')
-          } else {
-            history.push('/')
-          }
-          setValue(newValue)
-        }}
+        value={route === '/login' ? 1 : 0}
         showLabels
         className={classes.root}
       >
-        <BottomNavigationAction label="Feed" icon={<ChatBubbleIcon />} />
-        <BottomNavigationAction label="Login" icon={<PersonIcon />} />
+        <BottomNavigationAction
+          onClick={() => {
+            history.push('/')
+          }}
+          label="Feed"
+          icon={<ChatBubbleIcon />}
+        />
+        <BottomNavigationAction
+          onClick={() => {
+            history.push('/login')
+          }}
+          label="Login"
+          icon={<PersonIcon />}
+        />
       </BottomNavigation>
     </Container>
   )

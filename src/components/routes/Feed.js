@@ -36,7 +36,6 @@ const Feed = props => {
   }
   return (
     <div>
-      <Header />
       {/*user.isLoggedIn && <PostForm />*/}
 
       <PostForm
