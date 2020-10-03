@@ -37,8 +37,8 @@ export const userSlice = createSlice({
   }
 })
 
-export const selectUserPosts = state => state.users.posts
-export const selectUser = state => state.users
+export const selectUserPosts = state => state.user.posts
+export const selectUser = state => state.user
 
 export const { login, logout, setUserPosts, adduserPost } = userSlice.actions
 

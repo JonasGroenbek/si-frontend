@@ -8,15 +8,20 @@ export const postsSlice = createSlice({
   },
   reducers: {
     setPosts: (state, action) => {
-      const { posts } = action.payload
-      state.lastUpdated = new Date()
+      let { posts } = action.payload
+      state.lastUpdated = new Date().toISOString()
       state.posts = posts
+    },
+    addPost: (state, action) => {
+      const post = action.payload
+      console.log('POST', post)
+      state.posts.push(post)
     }
   }
 })
 
 export const selectPosts = state => state.posts.posts
 
-export const { setPosts } = postsSlice.actions
+export const { setPosts, addPost } = postsSlice.actions
 
 export default postsSlice.reducer

@@ -10,18 +10,20 @@ const Form = styled.div`
 
 const Login = props => {
   const {
+    onSubmit,
     email,
     setEmail,
     validateEmail,
     password,
     setPassword,
+    validatePassword,
     disableSubmit
   } = props
 
   return (
     <Form>
       <TextField
-        error={validateEmail()}
+        error={email === '' ? false : !validateEmail(email)}
         onChange={e => {
           setEmail(e.target.value)
         }}
@@ -31,7 +33,7 @@ const Login = props => {
         helperText="Incorrect email"
       />
       <TextField
-        error={false}
+        error={password === '' ? false : !validatePassword(password)}
         id="standard-error-helper-text"
         label="Password"
         type="password"
@@ -41,7 +43,15 @@ const Login = props => {
         }}
         helperText="Password must be atleast 8 characters long"
       />
-      <Button disabled={disableSubmit()}>Log in</Button>
+      <Button
+        style={{ marginTop: '20px' }}
+        variant="outlined"
+        color="primary"
+        disabled={disableSubmit()}
+        onClick={() => onSubmit()}
+      >
+        Log in
+      </Button>
     </Form>
   )
 }

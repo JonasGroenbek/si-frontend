@@ -32,13 +32,19 @@ const PostForm = props => {
           }}
           rows={3}
           rowsMax={6}
-          label="Outlined"
+          label="Post..."
           value={text}
           variant="outlined"
           multiline
           onChange={handleChange}
         />
-        <Button disabled={disableSubmit()} onClick={onSubmit}>
+        <Button
+          style={{ marginTop: '10px' }}
+          variant="outlined"
+          color="primary"
+          disabled={disableSubmit()}
+          onClick={onSubmit}
+        >
           Create a post!
         </Button>
       </InnerContainer>

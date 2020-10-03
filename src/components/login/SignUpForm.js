@@ -10,6 +10,7 @@ const Form = styled.div`
 
 const Login = props => {
   const {
+    onSubmit,
     email,
     setEmail,
     validateEmail,
@@ -69,7 +70,15 @@ const Login = props => {
         }}
         helperText="Should match previous password"
       />
-      <Button disabled={disableSubmit()}>Sign up!</Button>
+      <Button
+        style={{ marginTop: '20px' }}
+        variant="outlined"
+        color="primary"
+        disabled={disableSubmit()}
+        onClick={() => onSubmit()}
+      >
+        Sign up!
+      </Button>
     </Form>
   )
 }

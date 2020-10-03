@@ -31,7 +31,7 @@ const Name = styled.p``
 const Date = styled.p``
 
 const Login = props => {
-  const { name, date, post } = props
+  const { name, date, content } = props
   return (
     <Post>
       <Row>
@@ -40,7 +40,7 @@ const Login = props => {
         <Date>{moment(date).format('DD/MM/YYYY - hh:mm')}</Date>
       </Row>
       <Row>
-        <Content>{post}</Content>
+        <Content>{content}</Content>
       </Row>
     </Post>
   )

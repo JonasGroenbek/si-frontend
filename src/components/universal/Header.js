@@ -6,10 +6,14 @@ import PersonIcon from '@material-ui/icons/PersonOutlineRounded'
 import ChatBubbleIcon from '@material-ui/icons/ChatBubbleOutlineRounded'
 import styled from 'styled-components'
 import { useHistory, useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { selectUser } from '../../redux/slices/user'
+import User from './User'
 
 const Container = styled.div`
   background-color: #fff;
   position: fixed;
+  display: flex;
   width: 100%;
   height: 90px;
   top: 0px;
@@ -26,12 +30,14 @@ const useStyles = makeStyles({
 const Header = props => {
   const classes = useStyles()
 
+  const user = useSelector(selectUser)
   const history = useHistory()
 
   const { pathname: route } = useLocation()
 
   return (
     <Container>
+      {user.loggedIn && <User />}
       <BottomNavigation
         value={route === '/login' ? 1 : 0}
         showLabels
